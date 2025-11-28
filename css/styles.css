@@ -71,6 +71,17 @@ li {
     padding: 0 2rem;
 }
 
+/* Homepage specific layout */
+.main-content .content-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+    padding: 4rem 2rem;
+    align-items: start;
+    min-height: calc(100vh - 64px);
+    justify-content: center;
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -177,16 +188,6 @@ li {
     background-color: #ffffff;
     min-height: 100vh;
     padding-top: 64px;
-}
-
-.content-container {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 1.5rem;
-    padding: 4rem 2rem;
-    align-items: start;
-    min-height: calc(100vh - 64px);
-    justify-content: center;
 }
 
 /* Move the main section down slightly */
@@ -527,20 +528,21 @@ li {
 }
 
 .page-header {
-    background-color: white;
-    border-bottom: 3px solid #6B46C1;
-    padding: 3rem 0;
+    display: none;
 }
 
 .page-title {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: #6B46C1;
-    text-align: center;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #6B46C1;
 }
 
 .page-body {
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
 /* Content styles for individual pages */
@@ -570,12 +572,12 @@ li {
 .events-content h2,
 .research-content h2,
 .contact-content h2 {
-    font-size: 2rem;
+    font-size: 1.3rem;
     margin-top: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #6B46C1;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #6B46C1;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .bio-content h3 {
@@ -948,7 +950,7 @@ li {
     }
 
     /* Main content mobile */
-    .content-container {
+    .main-content .content-container {
         grid-template-columns: 1fr;
         gap: 1rem;
         padding: 2rem 1rem;
@@ -1215,6 +1217,207 @@ li {
     align-items: center;
 }
 
+/* Member grid */
+.members-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Member cards */
+.member-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.member-card:hover {
+    border-color: #6B46C1;
+    box-shadow: 0 4px 20px rgba(107, 70, 193, 0.2);
+    transform: translateY(-4px);
+}
+
+.member-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6B46C1;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.member-info {
+    flex: 1;
+    width: 100%;
+}
+
+.member-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.member-title {
+    font-size: 0.9rem;
+    color: #6B46C1;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.member-bio {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.read-more-btn {
+    background-color: #6B46C1;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.read-more-btn:hover {
+    background-color: #553C9A;
+    transform: translateY(-2px);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: #666;
+    font-size: 2.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: #6B46C1;
+}
+
+#modalBody h3 {
+    color: #6B46C1;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+#modalBody h4 {
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+#modalBody p {
+    color: #333;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Join section */
+.join-section {
+    background-color: #f8f9fa;
+    border: 2px solid #6B46C1;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.join-section h2 {
+    font-size: 1.5rem;
+    color: #6B46C1;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: none;
+}
+
+.join-section p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.join-section a {
+    color: #6B46C1;
+    font-weight: 600;
+}
+
 /* Download button styling */
 .contact-right .abstract-btn {
     background-color: #6B46C1;
@@ -1240,5 +1443,35 @@ li {
 
     .contact-right {
         align-self: flex-start;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .member-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 2rem 1.5rem;
+        max-height: 90vh;
+    }
+
+    .close-modal {
+        top: 0.5rem;
+        right: 1rem;
+        font-size: 2rem;
+    }
+
+    #modalBody h3 {
+        font-size: 1.5rem;
+    }
+
+    #modalBody h4 {
+        font-size: 1rem;
     }
 }

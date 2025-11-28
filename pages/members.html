@@ -43,31 +43,64 @@
 
     <main class="page-content">
         <div class="content-container">
-            <div class="page-header">
-                <h1 class="page-title">Members</h1>
-            </div>
-
             <div class="page-body">
                 <div class="members-content">
-                    <h2>Founding Members</h2>
-                    <p>BELFORS is currently being established. Information about founding members and core team will be added here as the society takes shape.</p>
+                    <h1 class="page-title">Members</h1>
 
-                    <h2>Join Us</h2>
-                    <p>We welcome academics, researchers, and practitioners interested in forecasting to join BELFORS. Whether you're conducting cutting-edge research or applying forecasting methods to solve real-world problems, there's a place for you in our community.</p>
-                    
-                    <p>If you're interested in becoming a member or learning more about membership opportunities, please <a href="contact.html">get in touch</a>.</p>
+                    <div class="members-grid">
+                        <div class="member-card" onclick="openMemberModal('yves')">
+                            <img src="../assets/images/members/yves.jpg" alt="Yves R. Sagaert" class="member-image">
+                            <div class="member-info">
+                                <h3 class="member-name">Yves R. Sagaert</h3>
+                                <p class="member-title">Director & Head of Research</p>
+                                <button class="read-more-btn">Read More</button>
+                            </div>
+                        </div>
 
-                    <h2>Member Benefits</h2>
-                    <ul class="interests-list">
-                        <li>Access to networking events and workshops</li>
-                        <li>Opportunities for collaboration between academia and industry</li>
-                        <li>Sharing of best practices and research findings</li>
-                        <li>Connection with Belgium's forecasting community</li>
-                        <li>Participation in forecasting challenges and initiatives</li>
-                    </ul>
+                        <div class="member-card" onclick="openMemberModal('jente')">
+                            <img src="../assets/images/members/jente.png" alt="Jente Van Belle" class="member-image">
+                            <div class="member-info">
+                                <h3 class="member-name">Jente Van Belle</h3>
+                                <p class="member-title">FWO Junior Postdoctoral Fellow</p>
+                                <button class="read-more-btn">Read More</button>
+                            </div>
+                        </div>
 
+                        <div class="member-card" onclick="openMemberModal('hussain')">
+                            <img src="../assets/images/members/hussain.jpg" alt="Dr. Hussain Kazmi" class="member-image">
+                            <div class="member-info">
+                                <h3 class="member-name">Dr. Hussain Kazmi</h3>
+                                <p class="member-title">Assistant Professor</p>
+                                <button class="read-more-btn">Read More</button>
+                            </div>
+                        </div>
+
+                        <div class="member-card" onclick="openMemberModal('lucca')">
+                            <img src="../assets/images/members/lucca.JPG" alt="Lucca" class="member-image">
+                            <div class="member-info">
+                                <h3 class="member-name">Lucca</h3>
+                                <p class="member-title">PhD Researcher</p>
+                                <button class="read-more-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="join-section">
+                        <h2>Join BELFORS</h2>
+                        <p>We welcome academics, researchers, and practitioners interested in forecasting and predictive analytics. Members gain access to networking events, collaboration opportunities, and Belgium's forecasting community. <a href="contact.html">Contact us</a> to learn more.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Member Bio Modal -->
+            <div id="memberModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal" onclick="closeMemberModal()">&times;</span>
+                    <div id="modalBody"></div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 

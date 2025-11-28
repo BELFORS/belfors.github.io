@@ -227,3 +227,64 @@ function downloadSlides(filename) {
     // Optional: Show feedback to user
     console.log(`Downloading: ${filename}`);
 }
+
+// Member modal functionality
+const memberBios = {
+    yves: {
+        name: "Yves R. Sagaert",
+        title: "Director & Head of Research",
+        bio: "Yves R. Sagaert is head of the research group of Predictive AI and Digital Shift at the VIVES University of Applied Sciences in Belgium and director of BELFORS. He is a researcher at KU Leuven and an Adjunct Professor at the IÉSEG School of Management in Lille (France). He strives to integrate business forecasting with real-world decisions and constraints, bringing forecast models closer to their cost impact. Business applications range from inventory management, logistics, electricity demand, and food waste. His research focuses also on incorporating market intelligence in demand forecasting through leading indicators and the effects on supply chain management, and especially when historical business data is limited. His broader expertise includes supply chain management, leading indicators, business forecasting, inventory, variable selection, and shrinkage methods."
+    },
+    jente: {
+        name: "Jente Van Belle",
+        title: "FWO Junior Postdoctoral Fellow",
+        bio: "Jente Van Belle is currently an FWO junior postdoctoral fellow. He received his PhD (2021) and MSc (2015) degrees in Applied Economics (Business Engineering) from the Vrije Universiteit Brussel (Belgium). His doctoral research was funded by Flanders Innovation and Entrepreneurship (VLAIO) and OMP through a personal research grant. His research focuses on time series forecasting and prescriptive analytics, and his work has been published in established international scientific journals, including IEEE TNNLS, IJF, and EJOR.<br><br>He is currently working on his FWO project \"MBA-FORECAST: Moving Beyond Accuracy to optimize time series FORECASTs\", which focuses on developing approaches to incorporate additional quality criteria—next to forecast accuracy—directly into the optimization of forecasting models, with the goal of improving the intrinsic quality of the resulting forecasts."
+    },
+    hussain: {
+        name: "Dr. Hussain Kazmi",
+        title: "Assistant Professor",
+        bio: "Dr. Hussain Kazmi is an assistant professor in the department of electrical engineering (ELECTA-ESAT), KU Leuven, where he heads the Energy Data Science Lab. His research focuses on two inter-connected themes: sample-efficient energy forecasting and modeling, and optimal decision-making under uncertainty for smart energy systems."
+    },
+    lucca: {
+        name: "Lucca",
+        title: "PhD Researcher",
+        bio: "Lucca is a PhD researcher at Vlerick Business School and KU Leuven, with hands-on experience in PV energy forecasting for a real estate owner, developing data-driven models to enhance solar output accuracy. She is currently active at Qbus in the energy management sector, with a strong interest in leveraging analytics and forecasting to advance sustainable energy solutions."
+    }
+};
+
+function openMemberModal(memberId) {
+    const modal = document.getElementById('memberModal');
+    const modalBody = document.getElementById('modalBody');
+    const member = memberBios[memberId];
+
+    if (member) {
+        modalBody.innerHTML = `
+            <h3>${member.name}</h3>
+            <h4>${member.title}</h4>
+            <p>${member.bio}</p>
+        `;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeMemberModal() {
+    const modal = document.getElementById('memberModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('memberModal');
+    if (event.target === modal) {
+        closeMemberModal();
+    }
+}
+
+// Close modal with escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeMemberModal();
+    }
+});
