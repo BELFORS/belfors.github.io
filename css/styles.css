@@ -923,6 +923,7 @@ li {
         border-top: 1px solid #e5e5e5;
         padding: 2rem 0;
         gap: 0;
+        z-index: 1500;
     }
 
     .nav-menu.active {
@@ -1220,7 +1221,7 @@ li {
 /* Member grid */
 .members-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -1435,6 +1436,71 @@ li {
     transform: translateY(-1px);
 }
 
+/* Event grid and cards */
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card:hover {
+    border-color: #6B46C1;
+    box-shadow: 0 4px 20px rgba(107, 70, 193, 0.2);
+    transform: translateY(-4px);
+}
+
+.event-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.event-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.event-date {
+    font-size: 0.9rem;
+    color: #6B46C1;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.event-brief {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.event-card .read-more-btn {
+    align-self: flex-start;
+}
+
 @media (max-width: 768px) {
     .contact-section {
         flex-direction: column;
@@ -1473,5 +1539,13 @@ li {
 
     #modalBody h4 {
         font-size: 1rem;
+    }
+
+    .event-image {
+        height: 200px;
+    }
+
+    .event-title {
+        font-size: 1.2rem;
     }
 }

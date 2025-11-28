@@ -49,24 +49,46 @@
 
             <div class="page-body">
                 <div class="events-content">
+                    <h1 class="page-title">Events</h1>
+
                     <h2>Upcoming Events</h2>
-                    <p>BELFORS is currently being established. Information about upcoming events, workshops, and seminars will be posted here soon.</p>
+                    <div class="events-grid">
+                        <div class="event-card" onclick="openEventModal('competition2026')">
+                            <img src="../assets/images/events/isf.png" alt="Forecasting Practice Competition 2026" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">$10,000 Forecasting Practice Competition</h3>
+                                <p class="event-date">2026 Foresight Practitioner Conference</p>
+                                <p class="event-brief">Showcase your applied forecasting success and win $10,000! Submit your real-world solutions.</p>
+                                <button class="read-more-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h2>Event Types</h2>
-                    <p>We plan to organize various types of events to foster collaboration and knowledge sharing:</p>
-                    
-                    <ul class="interests-list">
-                        <li>Regular meetups and networking sessions</li>
-                        <li>Technical workshops on forecasting methods</li>
-                        <li>Research seminars and presentations</li>
-                        <li>Industry-academia collaboration events</li>
-                        <li>Forecasting competitions and challenges</li>
-                        <li>Guest speaker series</li>
-                    </ul>
+                    <h2>Past Events</h2>
+                    <div class="events-grid">
+                        <div class="event-card" onclick="openEventModal('smartmeal')">
+                            <img src="../assets/images/events/tetra.png" alt="Smart Meal Planning Project" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">Smart Meal Planning Project Conclusion</h3>
+                                <p class="event-date">2-Year TETRA Project (Completed)</p>
+                                <p class="event-brief">AI-driven forecasting to reduce food waste in meal planning - a collaboration with VIVES, KU Leuven, VLAIO, and Flanders' FOOD.</p>
+                                <button class="read-more-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h2>Stay Updated</h2>
-                    <p>To stay informed about upcoming events and activities, please <a href="contact.html">contact us</a> to join our mailing list.</p>
+                    <div class="join-section">
+                        <h2>Stay Updated</h2>
+                        <p>To stay informed about upcoming events, workshops, and seminars, please <a href="contact.html">contact us</a> to join our mailing list.</p>
+                    </div>
+                </div>
 
+                <!-- Event Modal -->
+                <div id="eventModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal" onclick="closeEventModal()">&times;</span>
+                        <div id="eventModalBody"></div>
+                    </div>
                 </div>
             </div>
         </div>
