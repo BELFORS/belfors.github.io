@@ -924,6 +924,7 @@ li {
         padding: 2rem 0;
         gap: 0;
         z-index: 1500;
+        transform: none;
     }
 
     .nav-menu.active {
@@ -1452,7 +1453,7 @@ li {
     transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .event-card:hover {
@@ -1462,10 +1463,12 @@ li {
 }
 
 .event-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-bottom: 2px solid #e9ecef;
+    width: 300px;
+    min-width: 300px;
+    height: auto;
+    object-fit: contain;
+    border-right: 2px solid #e9ecef;
+    background-color: #f8f9fa;
 }
 
 .event-info {
@@ -1541,8 +1544,17 @@ li {
         font-size: 1rem;
     }
 
+    .event-card {
+        flex-direction: column;
+    }
+
     .event-image {
+        width: 100%;
+        min-width: 100%;
         height: 200px;
+        object-fit: contain;
+        border-right: none;
+        border-bottom: 2px solid #e9ecef;
     }
 
     .event-title {
