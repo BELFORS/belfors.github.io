@@ -249,6 +249,16 @@ const memberBios = {
         name: "Lucca",
         title: "PhD Researcher",
         bio: "Lucca is a PhD researcher at Vlerick Business School and KU Leuven, with hands-on experience in PV energy forecasting for a real estate owner, developing data-driven models to enhance solar output accuracy. She is currently active at Qbus in the energy management sector, with a strong interest in leveraging analytics and forecasting to advance sustainable energy solutions."
+    },
+    joost: {
+        name: "Joost van der Haar",
+        title: "PhD Researcher",
+        bio: "Joost van der Haar is a PhD researcher in machine learning for operations management at the Faculty of Economics and Business at KU Leuven. His research focuses on the interface between forecasting and decision optimization, with application areas ranging from inventory control to maintenance optimization. The objective of his research is to align forecasting and decision optimization for these areas using techniques such as cost-sensitive learning and deep reinforcement learning."
+    },
+    fil: {
+        name: "Filotas Theodosiou",
+        title: "Senior Applied Researcher & Lecturer",
+        bio: "Filotas Theodosiou is a senior applied researcher and lecturer at the Research Group of Predictive AI and Digital Shift at VIVES University of Applied Sciences. His research focuses on designing, modeling, and effectively communicating machine learning-based forecasting solutions for complex business problems. With strong technical and engineering expertise evidenced by his contributions to multiple Python packages, Filotas brings practical implementation knowledge to theoretical concepts.<br><br>His multi-dimensional ML-based forecasting experience spans diverse business challenges, including hierarchical forecasting systems, demand prediction models that perform well with limited historical data, interpretable and actionable prediction frameworks, and specialized forecasting solutions for highly perishable products requiring unique optimization approaches.<br><br>Furthermore, he actively evaluates the rapidly evolving landscape of AI, giving regular talks on the progress and usage of modern AI tools. He also has a keen focus on critically assessing the potential and limitations of LLMs and their applicability on forecasting tasks."
     }
 };
 
@@ -286,5 +296,71 @@ window.onclick = function(event) {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeMemberModal();
+        closeEventModal();
+    }
+});
+
+// Event modal functionality
+const eventDetails = {
+    smartmeal: {
+        title: "Smart Meal Planning Project Conclusion",
+        date: "2-Year TETRA Project (Completed)",
+        description: `
+            <p>We successfully concluded the 2-year TETRA Smart Meal Planning project, aimed at reducing food waste through AI forecasting. This project was a close collaboration between VIVES University of Applied Sciences, KU Leuven, VLAIO and Flanders' FOOD.</p>
+
+            <p>This research project tackled demand forecasting for highly perishable ready-to-eat meals. One of the biggest challenges is the last-minute order adjustments, which often leads to overproduction and food waste. By using AI-driven demand forecasting, we developed solutions to optimise staff and raw material planning, ultimately relieving pressure on kitchen staff while boosting sustainability.</p>
+
+            <p>This final event provided an excellent platform to demonstrate how our research was validated in practice with our prototype, featuring real-world applications for various school caterers, elderly care facilities and hospitals. The IKEA case study showed how the integration of forecasting and inventory management can be done via cost-sensitive machine learning.</p>
+
+            <p><strong>Learn more:</strong> <a href="https://www.vives.be/nl/onderzoek/smartmealplanning" target="_blank">VIVES Smart Meal Planning Project</a></p>
+        `,
+        image: "../assets/images/events/tetra.png"
+    },
+    competition2026: {
+        title: "$10,000 Forecasting Practice Competition",
+        date: "2026 Foresight Practitioner Conference at VIVES Bruges, Belgium",
+        description: `
+            <p>Have you achieved significant business impact using applied forecasting or econometrics? This is your chance to showcase your successful real-world solutions in our $10,000 Forecasting Practice Competition!</p>
+
+            <p>Demonstrate your process and impact and submit your application today. The winners will be announced at the 2026 Foresight Practitioner Conference at VIVES Bruges, Belgium!</p>
+
+            <p><strong>Special Guest:</strong> Professor Spyros Makridakis, founder of the M Competitions, will be joining as a special guest!</p>
+
+            <p><strong>Apply now:</strong> <a href="https://lnkd.in/eHcN_6_t" target="_blank">Submit Your Application</a></p>
+        `,
+        image: "../assets/images/events/isf.png"
+    }
+};
+
+function openEventModal(eventId) {
+    const modal = document.getElementById('eventModal');
+    const modalBody = document.getElementById('eventModalBody');
+    const event = eventDetails[eventId];
+
+    if (event) {
+        modalBody.innerHTML = `
+            <img src="${event.image}" alt="${event.title}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
+            <h3>${event.title}</h3>
+            <h4>${event.date}</h4>
+            ${event.description}
+        `;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeEventModal() {
+    const modal = document.getElementById('eventModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close event modal when clicking outside of it
+window.addEventListener('click', function(event) {
+    const eventModal = document.getElementById('eventModal');
+    if (event.target === eventModal) {
+        closeEventModal();
     }
 });
