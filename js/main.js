@@ -259,6 +259,11 @@ const memberBios = {
         name: "Filotas Theodosiou",
         title: "Senior Applied Researcher & Lecturer",
         bio: "Filotas Theodosiou is a senior applied researcher and lecturer at the Research Group of Predictive AI and Digital Shift at VIVES University of Applied Sciences. His research focuses on designing, modeling, and effectively communicating machine learning-based forecasting solutions for complex business problems. With strong technical and engineering expertise evidenced by his contributions to multiple Python packages, Filotas brings practical implementation knowledge to theoretical concepts.<br><br>His multi-dimensional ML-based forecasting experience spans diverse business challenges, including hierarchical forecasting systems, demand prediction models that perform well with limited historical data, interpretable and actionable prediction frameworks, and specialized forecasting solutions for highly perishable products requiring unique optimization approaches.<br><br>Furthermore, he actively evaluates the rapidly evolving landscape of AI, giving regular talks on the progress and usage of modern AI tools. He also has a keen focus on critically assessing the potential and limitations of LLMs and their applicability on forecasting tasks."
+    },
+    sarah: {
+        name: "Dr. Sarah Van der Auweraer",
+        title: "Assistant Professor",
+        bio: "Dr. Sarah Van der Auweraer is an Assistant Professor at IÉSEG School of Management in Lille, France, where she also leads the master's program in Operations Management. Her research centers on the intersection of demand forecasting, inventory management, and service logistics, with a particular focus on solving real-world industry challenges through collaborative projects. Sarah's work bridges academic rigor and practical relevance, often through partnerships with industry stakeholders. This approach ensures that her insights not only advance scientific understanding but also deliver impact within organizations. In addition to her academic and teaching commitments, she serves as Vice-Chair of the Early Career Researchers Chapter of the International Society for Inventory Research. She is dedicated to supporting the next generation of scholars within different research communities."
     }
 };
 
