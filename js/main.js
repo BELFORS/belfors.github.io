@@ -334,6 +334,18 @@ const eventDetails = {
             <p><strong>Apply now:</strong> <a href="https://lnkd.in/eHcN_6_t" target="_blank">Submit Your Application</a></p>
         `,
         image: "../assets/images/events/isf.png"
+    },
+    fpc: {
+        title: "Foresight Practitioner Conference (FPC)",
+        date: "Upcoming Foresight Practitioner Conference",
+        description: `
+            <p>BELFORS co-organises the Foresight Practitioner Conference (FPC) together with the International Institute of Forecasters (IIF), bringing an exclusive C-level and senior-expert audience together to explore the latest advances in forecasting, often six months before they appear in Foresight.</p>
+
+            <p>The event focuses on practical business impact, high-quality networking, and small-group exchanges, and includes the prestigious IIF Award for the Impact of Forecasting in Practice.</p>
+
+            <p><strong>Learn more:</strong> <a href="https://forecasters.org/events/foresight-practitioner-conference/" target="_blank">Foresight Practitioner Conference</a></p>
+        `,
+        image: "../assets/images/events/fpc.png"
     }
 };
 
