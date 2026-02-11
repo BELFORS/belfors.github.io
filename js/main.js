@@ -356,7 +356,7 @@ function openEventModal(eventId) {
 
     if (event) {
         modalBody.innerHTML = `
-            <img src="${event.image}" alt="${event.title}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
+            <img src="${event.image}" alt="${event.title}" style="width: 100%; max-height: 380px; object-fit: contain; object-position: top; border-radius: 8px; margin-bottom: 1.5rem; display: block; background: #f5f5f5;">
             <h3>${event.title}</h3>
             <h4>${event.date}</h4>
             ${event.description}
