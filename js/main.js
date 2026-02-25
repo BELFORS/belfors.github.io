@@ -346,6 +346,20 @@ const eventDetails = {
             <p><strong>Learn more:</strong> <a href="https://forecasters.org/events/foresight-practitioner-conference/" target="_blank">Foresight Practitioner Conference</a></p>
         `,
         image: "../assets/images/events/fpc.png"
+    },
+    orbel40: {
+        title: "Orbel: The Belgian Operational Research Society.",
+        date: "ORBEL40, February 5-6, Leuven",
+        description: `
+            <p>BELFORS was strongly represented at ORBEL40 in Leuven on February 5-6, where members delivered a diverse set of forecasting and decision-support presentations.</p>
+
+            <p>Contributions spanned energy forecasting, cash-flow and inventory analytics, supply chain dynamics, forecast evaluation, and semantic methods for variable selection.</p>
+
+            <p>The conference provided a valuable forum to share insights, discuss methodological progress, and strengthen collaboration within the operational research community.</p>
+
+            <p>Interested readers can consult the <a href="https://feb.kuleuven.be/orbel40/orbel40-conference-book.pdf" target="_blank">conference book</a> for full abstracts or contact BELFORS for more information.</p>
+        `,
+        image: "../assets/images/events/orbel.png"
     }
 };
 
