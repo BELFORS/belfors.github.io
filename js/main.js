@@ -307,6 +307,18 @@ document.addEventListener('keydown', function(event) {
 
 // Event modal functionality
 const eventDetails = {
+    isf46: {
+        title: "The 46th International Symposium on Forecasting",
+        date: "Montreal, Canada",
+        description: `
+            <p>BELFORS is organising a special session on aligning forecasting with decision-making. In this stream, we focus on how forecasting can be better aligned with downstream decision-making.</p>
+
+            <p>Different methodological approaches will be covered. The more direct predict-and-optimize or value-oriented forecasting approach focuses on fully integrating forecasting with a specific downstream decision-making problem. In contrast, indirect approaches follow the classical two-stage predict-then-optimize paradigm, but promote alignment by incorporating additional relevant quality criteria alongside forecast accuracy into the optimization of forecasting models.</p>
+
+            <p>Finally, in this session, we will also explore when and how explainable forecasts can support downstream decision-making.</p>
+        `,
+        image: "../assets/images/events/montreal.jpg"
+    },
     smartmeal: {
         title: "Smart Meal Planning Project Conclusion",
         date: "2-Year TETRA Project (Completed)",
@@ -337,7 +349,7 @@ const eventDetails = {
     },
     fpc: {
         title: "Foresight Practitioner Conference (FPC)",
-        date: "Upcoming Foresight Practitioner Conference",
+        date: "Foresight Practitioner Conference",
         description: `
             <p>BELFORS co-organises the Foresight Practitioner Conference (FPC) together with the International Institute of Forecasters (IIF), bringing an exclusive C-level and senior-expert audience together to explore the latest advances in forecasting, often six months before they appear in Foresight.</p>
 
