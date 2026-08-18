@@ -285,8 +285,10 @@ function openMemberModal(memberId) {
 
 function closeMemberModal() {
     const modal = document.getElementById('memberModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 }
 
 // Close modal when clicking outside of it
@@ -305,88 +307,160 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Event modal functionality
-const eventDetails = {
-    isf46: {
-        title: "The 46th International Symposium on Forecasting",
-        date: "Montreal, Canada",
-        description: `
-            <p>BELFORS is organising a special session on aligning forecasting with decision-making. In this stream, we focus on how forecasting can be better aligned with downstream decision-making.</p>
+// Event card and modal functionality. Event content lives in events-data.js.
+const eventDetails = new Map();
 
-            <p>Different methodological approaches will be covered. The more direct predict-and-optimize or value-oriented forecasting approach focuses on fully integrating forecasting with a specific downstream decision-making problem. In contrast, indirect approaches follow the classical two-stage predict-then-optimize paradigm, but promote alignment by incorporating additional relevant quality criteria alongside forecast accuracy into the optimization of forecasting models.</p>
-
-            <p>Finally, in this session, we will also explore when and how explainable forecasts can support downstream decision-making.</p>
-        `,
-        image: "../assets/images/events/montreal.jpg"
-    },
-    smartmeal: {
-        title: "Smart Meal Planning Project Conclusion",
-        date: "2-Year TETRA Project (Completed)",
-        description: `
-            <p>We successfully concluded the 2-year TETRA Smart Meal Planning project, aimed at reducing food waste through AI forecasting. This project was a close collaboration between VIVES University of Applied Sciences, KU Leuven, VLAIO and Flanders' FOOD.</p>
-
-            <p>This research project tackled demand forecasting for highly perishable ready-to-eat meals. One of the biggest challenges is the last-minute order adjustments, which often leads to overproduction and food waste. By using AI-driven demand forecasting, we developed solutions to optimise staff and raw material planning, ultimately relieving pressure on kitchen staff while boosting sustainability.</p>
-
-            <p>This final event provided an excellent platform to demonstrate how our research was validated in practice with our prototype, featuring real-world applications for various school caterers, elderly care facilities and hospitals. The IKEA case study showed how the integration of forecasting and inventory management can be done via cost-sensitive machine learning.</p>
-
-            <p><strong>Learn more:</strong> <a href="https://www.vives.be/nl/onderzoek/smartmealplanning" target="_blank">VIVES Smart Meal Planning Project</a></p>
-        `,
-        image: "../assets/images/events/tetra.png"
-    },
-    competition2026: {
-        title: "$10,000 Forecasting Practice Competition",
-        date: "2026 Foresight Practitioner Conference at VIVES Bruges, Belgium",
-        description: `
-            <p>Have you achieved significant business impact using applied forecasting or econometrics? This is your chance to showcase your successful real-world solutions in our $10,000 Forecasting Practice Competition!</p>
-
-            <p>Demonstrate your process and impact and submit your application today. The winners will be announced at the 2026 Foresight Practitioner Conference at VIVES Bruges, Belgium!</p>
-
-            <p><strong>Special Guest:</strong> Professor Spyros Makridakis, founder of the M Competitions, will be joining as a special guest!</p>
-
-            <p><strong>Apply now:</strong> <a href="https://lnkd.in/eHcN_6_t" target="_blank">Submit Your Application</a></p>
-        `,
-        image: "../assets/images/events/isf.png"
-    },
-    fpc: {
-        title: "Foresight Practitioner Conference (FPC)",
-        date: "Foresight Practitioner Conference",
-        description: `
-            <p>BELFORS co-organises the Foresight Practitioner Conference (FPC) together with the International Institute of Forecasters (IIF), bringing an exclusive C-level and senior-expert audience together to explore the latest advances in forecasting, often six months before they appear in Foresight.</p>
-
-            <p>The event focuses on practical business impact, high-quality networking, and small-group exchanges, and includes the prestigious IIF Award for the Impact of Forecasting in Practice.</p>
-
-            <p><strong>Learn more:</strong> <a href="https://forecasters.org/events/foresight-practitioner-conference/" target="_blank">Foresight Practitioner Conference</a></p>
-        `,
-        image: "../assets/images/events/fpc.png"
-    },
-    orbel40: {
-        title: "Orbel: The Belgian Operational Research Society.",
-        date: "ORBEL40, February 5-6, Leuven",
-        description: `
-            <p>BELFORS was strongly represented at ORBEL40 in Leuven on February 5-6, where members delivered a diverse set of forecasting and decision-support presentations.</p>
-
-            <p>Contributions spanned energy forecasting, cash-flow and inventory analytics, supply chain dynamics, forecast evaluation, and semantic methods for variable selection.</p>
-
-            <p>The conference provided a valuable forum to share insights, discuss methodological progress, and strengthen collaboration within the operational research community.</p>
-
-            <p>Interested readers can consult the <a href="https://feb.kuleuven.be/orbel40/orbel40-conference-book.pdf" target="_blank">conference book</a> for full abstracts or contact BELFORS for more information.</p>
-        `,
-        image: "../assets/images/events/orbel.png"
+function isValidEvent(event, seenIds) {
+    if (!event || typeof event !== 'object') {
+        console.error('Skipping invalid event:', event);
+        return false;
     }
-};
+
+    const requiredTextFields = ['id', 'status', 'title', 'date', 'image', 'imageAlt', 'summary'];
+    const hasRequiredText = requiredTextFields.every(function (field) {
+        return typeof event[field] === 'string' && event[field].trim() !== '';
+    });
+    const hasValidDetails = Array.isArray(event.details) && event.details.every(function (detail) {
+        return typeof detail === 'string' && detail.trim() !== '';
+    });
+    const links = event.links === undefined ? [] : event.links;
+    const hasValidLinks = Array.isArray(links) && links.every(function (eventLink) {
+        return eventLink && typeof eventLink.label === 'string' && eventLink.label.trim() !== '' &&
+            typeof eventLink.text === 'string' && eventLink.text.trim() !== '' &&
+            typeof eventLink.url === 'string' && /^https?:\/\//.test(eventLink.url);
+    });
+
+    if (!hasRequiredText || !['upcoming', 'past'].includes(event.status) ||
+        !hasValidDetails || !hasValidLinks || seenIds.has(event.id)) {
+        console.error('Skipping invalid or duplicate event:', event);
+        return false;
+    }
+
+    seenIds.add(event.id);
+    return true;
+}
+
+function createEventCard(event) {
+    const card = document.createElement('div');
+    card.className = 'event-card';
+    card.addEventListener('click', function () {
+        openEventModal(event.id);
+    });
+
+    const image = document.createElement('img');
+    image.src = `../assets/images/events/${event.image}`;
+    image.alt = event.imageAlt;
+    image.className = 'event-image';
+
+    const info = document.createElement('div');
+    info.className = 'event-info';
+
+    const title = document.createElement('h3');
+    title.className = 'event-title';
+    title.textContent = event.title;
+
+    const date = document.createElement('p');
+    date.className = 'event-date';
+    date.textContent = event.date;
+
+    const summary = document.createElement('p');
+    summary.className = 'event-brief';
+    summary.textContent = event.summary;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'read-more-btn';
+    button.textContent = 'Read More';
+
+    info.append(title, date, summary, button);
+    card.append(image, info);
+    return card;
+}
+
+function renderEvents() {
+    const sections = {
+        upcoming: {
+            section: document.getElementById('upcoming-events-section'),
+            grid: document.getElementById('upcoming-events-grid')
+        },
+        past: {
+            section: document.getElementById('past-events-section'),
+            grid: document.getElementById('past-events-grid')
+        }
+    };
+
+    if (!sections.upcoming.section || !sections.upcoming.grid ||
+        !sections.past.section || !sections.past.grid) {
+        return;
+    }
+
+    const events = Array.isArray(window.BELFORS_EVENTS) ? window.BELFORS_EVENTS : [];
+    const counts = { upcoming: 0, past: 0 };
+    const seenIds = new Set();
+
+    eventDetails.clear();
+    sections.upcoming.grid.replaceChildren();
+    sections.past.grid.replaceChildren();
+
+    events.forEach(function (event) {
+        if (!isValidEvent(event, seenIds)) {
+            return;
+        }
+
+        eventDetails.set(event.id, event);
+        sections[event.status].grid.appendChild(createEventCard(event));
+        counts[event.status] += 1;
+    });
+
+    Object.keys(sections).forEach(function (status) {
+        sections[status].section.hidden = counts[status] === 0;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', renderEvents);
 
 function openEventModal(eventId) {
     const modal = document.getElementById('eventModal');
     const modalBody = document.getElementById('eventModalBody');
-    const event = eventDetails[eventId];
+    const event = eventDetails.get(eventId);
 
     if (event) {
-        modalBody.innerHTML = `
-            <img src="${event.image}" alt="${event.title}" style="width: 100%; max-height: 380px; object-fit: contain; object-position: top; border-radius: 8px; margin-bottom: 1.5rem; display: block; background: #f5f5f5;">
-            <h3>${event.title}</h3>
-            <h4>${event.date}</h4>
-            ${event.description}
-        `;
+        modalBody.replaceChildren();
+
+        const image = document.createElement('img');
+        image.src = `../assets/images/events/${event.image}`;
+        image.alt = event.imageAlt;
+        image.style.cssText = 'width: 100%; max-height: 380px; object-fit: contain; object-position: top; border-radius: 8px; margin-bottom: 1.5rem; display: block; background: #f5f5f5;';
+
+        const title = document.createElement('h3');
+        title.textContent = event.title;
+
+        const date = document.createElement('h4');
+        date.textContent = event.date;
+
+        modalBody.append(image, title, date);
+
+        event.details.forEach(function (detail) {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = detail;
+            modalBody.appendChild(paragraph);
+        });
+
+        (event.links || []).forEach(function (eventLink) {
+            const paragraph = document.createElement('p');
+            const label = document.createElement('strong');
+            const link = document.createElement('a');
+
+            label.textContent = `${eventLink.label}: `;
+            link.href = eventLink.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = eventLink.text;
+
+            paragraph.append(label, link);
+            modalBody.appendChild(paragraph);
+        });
+
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
