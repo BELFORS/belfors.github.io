@@ -2,6 +2,36 @@
 // Keep the punctuation and field names exactly as shown in the existing entries.
 window.BELFORS_EVENTS = [
     {
+        id: "aiForecastingDay2026",
+        status: "upcoming",
+        title: "AI Forecasting Inspiration Day",
+        date: "16 November 2026, 13:00-16:00, Kortrijk",
+        image: "pads_ai_day.jpg",
+        imageAlt: "A person writing ideas on a glass board during a workshop",
+        summary: "The annual inspiration session at VIVES University of Applied Sciences: concrete cases, live demos and an interactive workshop on how research and AI help companies sharpen their business digitally.",
+        details: [
+            "Sharpen your business digitally! Companies must move with the rhythm of the market. And that is quite challenging: changing customer demand, smart inventory management, and complex cyber threats require an innovative approach.",
+            "During the annual inspiration session at VIVES University of Applied Sciences, you will discover, through concrete cases and live demos, how research helps your company tackle these challenges. In an interactive workshop, you will also explore where AI offers opportunities for efficiency gains.",
+            "Get inspired, discover new possibilities, and sharpen your business digitally! This event is designed for companies."
+        ],
+        links: []
+    },
+    {
+        id: "belforsWorkshop2026",
+        status: "upcoming",
+        title: "BELFORS Forecasting Workshop",
+        date: "30 November 2026, 12:00-16:00, Leuven",
+        image: "belfors_energy.jpg",
+        imageAlt: "An audience with raised hands in a large hall",
+        summary: "An introduction to BELFORS and the road ahead, followed by a workshop on energy-related forecasting by Professor Kristen Schell of Carleton University (Canada).",
+        details: [
+            "First, a short introduction of BELFORS and some insight into the road ahead as an organisation. Second, Professor Kristen Schell from Carleton University (Canada) joins us for this workshop. She will give a workshop on energy-related forecasting.",
+            "Dr. Schell's current focus is on amplifying the share of electric power generated through renewable energy sources like wind power and overcoming the problems that the integration of these sources poses to system resource adequacy, reliability and resilience.",
+            "Her models are informed by large, empirical datasets from wind power producers, electric utilities, independent system operators, numerical weather prediction models and earth systems models. She works to develop novel machine learning and optimization methods that support decision-making for the energy transition, from the community to the federal level."
+        ],
+        links: []
+    },
+    {
         id: "isf46",
         status: "past",
         title: "The 46th International Symposium on Forecasting",
