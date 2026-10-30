@@ -19,7 +19,7 @@ window.BELFORS_EVENTS = [
     {
         id: "belforsWorkshop2026",
         status: "upcoming",
-        title: "BELFORS Forecasting Workshop",
+        title: "BELFORS AI4GreenDeal Forecasting Workshop",
         date: "30 November 2026, 12:00-16:00, Leuven",
         image: "belfors_energy.jpg",
         imageAlt: "An audience with raised hands in a large hall",
