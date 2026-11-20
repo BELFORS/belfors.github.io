@@ -2,21 +2,6 @@
 // Keep the punctuation and field names exactly as shown in the existing entries.
 window.BELFORS_EVENTS = [
     {
-        id: "aiForecastingDay2026",
-        status: "upcoming",
-        title: "AI Forecasting Inspiration Day",
-        date: "16 November 2026, 13:00-16:00, Kortrijk",
-        image: "pads_ai_day.jpg",
-        imageAlt: "A person writing ideas on a glass board during a workshop",
-        summary: "The annual inspiration session at VIVES University of Applied Sciences: concrete cases, live demos and an interactive workshop on how research and AI help companies sharpen their business digitally.",
-        details: [
-            "Sharpen your business digitally! Companies must move with the rhythm of the market. And that is quite challenging: changing customer demand, smart inventory management, and complex cyber threats require an innovative approach.",
-            "During the annual inspiration session at VIVES University of Applied Sciences, you will discover, through concrete cases and live demos, how research helps your company tackle these challenges. In an interactive workshop, you will also explore where AI offers opportunities for efficiency gains.",
-            "Get inspired, discover new possibilities, and sharpen your business digitally! This event is designed for companies."
-        ],
-        links: []
-    },
-    {
         id: "belforsWorkshop2026",
         status: "upcoming",
         title: "BELFORS Forecasting Workshop",
@@ -28,6 +13,35 @@ window.BELFORS_EVENTS = [
             "First, a short introduction of BELFORS and some insight into the road ahead as an organisation. Second, Professor Kristen Schell from Carleton University (Canada) joins us for this workshop. She will give a workshop on energy-related forecasting.",
             "Dr. Schell's current focus is on amplifying the share of electric power generated through renewable energy sources like wind power and overcoming the problems that the integration of these sources poses to system resource adequacy, reliability and resilience.",
             "Her models are informed by large, empirical datasets from wind power producers, electric utilities, independent system operators, numerical weather prediction models and earth systems models. She works to develop novel machine learning and optimization methods that support decision-making for the energy transition, from the community to the federal level."
+        ],
+        links: []
+    },
+    {
+        id: "belforsKickoff2027",
+        status: "upcoming",
+        title: "BELFORS New Year's Kick-Off",
+        date: "27 January 2027 (date to be confirmed)",
+        image: "belfors_kickoff.jpg",
+        imageAlt: "Conference attendees with name badges talking around a table during a networking break",
+        summary: "Kick off the new year with BELFORS! Meet companies facing similar challenges and forecasting experts presenting how forecasting and AI can create real business value.",
+        details: [
+            "Kick off the new year with BELFORS! Meet companies facing similar challenges and forecasting experts presenting how forecasting and AI can create real business value, from demand planning and inventory to capacity and strategic decision-making.",
+            "Join us to exchange experiences, discover new developments, and start new collaborations for the year ahead."
+        ],
+        links: []
+    },
+    {
+        id: "aiForecastingDay2026",
+        status: "past",
+        title: "AI Forecasting Inspiration Day",
+        date: "16 November 2026, 13:00-16:00, Kortrijk",
+        image: "pads_ai_day.jpg",
+        imageAlt: "A person writing ideas on a glass board during a workshop",
+        summary: "The annual inspiration session at VIVES University of Applied Sciences: concrete cases, live demos and an interactive workshop on how research and AI help companies sharpen their business digitally.",
+        details: [
+            "Sharpen your business digitally! Companies must move with the rhythm of the market. And that is quite challenging: changing customer demand, smart inventory management, and complex cyber threats require an innovative approach.",
+            "During the annual inspiration session at VIVES University of Applied Sciences, you will discover, through concrete cases and live demos, how research helps your company tackle these challenges. In an interactive workshop, you will also explore where AI offers opportunities for efficiency gains.",
+            "Get inspired, discover new possibilities, and sharpen your business digitally! This event is designed for companies."
         ],
         links: []
     },
