@@ -22,7 +22,7 @@ window.BELFORS_EVENTS = [
         title: "BELFORS New Year's Kick-Off",
         date: "27 January 2027 (date to be confirmed)",
         image: "belfors_kickoff.jpg",
-        imageAlt: "Conference attendees with name badges talking around a table during a networking break",
+        imageAlt: "A Bruges canal at dusk with the Belfry of Bruges in the background",
         summary: "Kick off the new year with BELFORS! Meet companies facing similar challenges and forecasting experts presenting how forecasting and AI can create real business value.",
         details: [
             "Kick off the new year with BELFORS! Meet companies facing similar challenges and forecasting experts presenting how forecasting and AI can create real business value, from demand planning and inventory to capacity and strategic decision-making.",
